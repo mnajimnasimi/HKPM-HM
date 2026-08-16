@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use HKPM-HM, please cite it as below."
+type: software
+title: "HKPM-HM: Hindu Kush Pamir Mountains Hydrological Model"
+version: 1.0.0
+date-released: "2026-08-15"
+authors:
+  - family-names: "Nasimi"
+    given-names: "Mohammad Najim"
+    affiliation: "Chair of Hydrology and River Basin Management, Technical University of Munich"
+    email: "najim.nasimi@tum.de"
+repository-code: "https://github.com/mnajimnasimi/HKPM-HM"
+license: GPL-3.0
+keywords:
+  - hydrological model
+  - snow hydrology
+  - glacier melt
+  - Hindu Kush
+  - Pamir
+  - Afghanistan
+  - data-scarce catchments

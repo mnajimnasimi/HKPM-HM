@@ -1,0 +1,106 @@
+======================================================================
+ HKPM-HM v1.0  -  Hindu Kush-Pamir Mountains Hydrological Model
+ Installation and start-up instructions (Windows)
+======================================================================
+
+This folder contains:
+
+  HKPM_HM_v1_0.py        the model (single file, opens a graphical
+                         user interface when run)
+  Install_Libraries.bat  one-time installer for all required libraries
+  INSTRUCTIONS.txt       this file
+
+
+WHAT YOU NEED
+----------------------------------------------------------------------
+Python 3.10 or newer. If Python is not yet installed, download it from
+https://www.python.org/downloads/ and during installation tick the box
+"Add python.exe to PATH".
+
+Note for Windows 10/11: typing "python" in a fresh command prompt may
+open the Microsoft Store instead of running Python. That Store entry is
+not a real installation - if that happens, install Python from the
+website above.
+
+
+STEP 1 - INSTALL THE LIBRARIES (one time only)
+----------------------------------------------------------------------
+Easiest way:
+  Double-click  Install_Libraries.bat  and wait until it reports
+  "All libraries OK". It finds your Python, installs everything the
+  model needs - including the libraries for shapefile input
+  (geopandas, pyshp), NetCDF input (xarray, netCDF4) and Excel input
+  (openpyxl) - and then verifies each one.
+
+Alternative way (single command):
+  Open the Start menu, type "cmd", press Enter, then paste this one
+  line and press Enter:
+
+  py -m pip install --upgrade numpy pandas matplotlib scipy geopandas pyshp xarray netCDF4 openpyxl
+
+  (If "py" is not recognised on your system, replace "py" with
+  "python" in the line above.)
+
+These are normal Windows user-level installations - no administrator
+rights and no virtual environment are needed, and they remain
+permanently available for every Python program on the computer.
+
+
+STEP 2 - START THE MODEL
+----------------------------------------------------------------------
+Double-click  HKPM_HM_v1_0.py
+
+The graphical interface opens with tabs for Data, Elevation Bands,
+Periods, Calibration, Optimization, Glacier, Glacier Post-Cal,
+Ungauged and Sensitivity. The workflow runs left to right:
+load the data, set the periods, calibrate, validate, export.
+
+If double-clicking opens an editor instead of running the model:
+right-click the file, choose "Open with" -> "Python", and tick
+"Always use this app".
+
+Alternatively, start it from the command prompt:
+
+  py HKPM_HM_v1_0.py
+
+
+SUPPORTED INPUT FORMATS
+----------------------------------------------------------------------
+  Time series (precipitation, temperature, discharge):
+      CSV, Excel (.xlsx), NetCDF (.nc) - dates are detected
+      automatically (ISO, European and HEC-HMS formats).
+  Catchment boundary and glacier outlines:
+      Shapefile (.shp), either a single file or a folder of yearly
+      outlines for the glacier module.
+
+After Step 1 all of these load without any further setup. If a
+shapefile or NetCDF file refuses to load, the corresponding library
+is missing - simply run  Install_Libraries.bat  again and check that
+the final verification line reports "All libraries OK".
+
+
+TROUBLESHOOTING
+----------------------------------------------------------------------
+"No module named scipy" (or numpy, geopandas, ...):
+    The model was started with a different Python than the one the
+    libraries were installed into. Run  Install_Libraries.bat  again -
+    it installs into the same Python that double-click uses.
+
+The window flashes and closes immediately:
+    Open a command prompt in this folder and run  py HKPM_HM_v1_0.py
+    - the error message will stay visible.
+
+geopandas fails to install:
+    pip provides pre-built geopandas wheels for Windows on Python
+    3.10+, so this is rare. If it does happen, the model still runs:
+    shapefile loading falls back to the bundled pyshp reader
+    automatically.
+
+
+CONTACT
+----------------------------------------------------------------------
+Mohammad Najim Nasimi
+Chair of Hydrology and River Basin Management
+Technical University of Munich
+najim.nasimi@tum.de
+======================================================================

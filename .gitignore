@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.pyo
+*.bak
+*.bak_*
+.DS_Store
+Thumbs.db
+*.egg-info/
+.ipynb_checkpoints/
+docs/*.docx
