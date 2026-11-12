@@ -2,6 +2,7 @@
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 [![Python ≥ 3.10](https://img.shields.io/badge/python-%E2%89%A5%203.10-blue.svg)](https://www.python.org/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21966639.svg)](https://doi.org/10.5281/zenodo.21966639)
 
 HKPM-HM is a conceptual, semi-distributed hydrological model developed for
 data-scarce, snow- and glacier-dominated mountain catchments of the Hindu
@@ -16,7 +17,7 @@ Python file.
 |---|---|
 | `HKPM_HM_v1_0.py` | The complete model (single file; opens a GUI when run) |
 | `simulated_flows/` | **Simulated daily discharge for the 35 study catchments** of the accompanying paper (calibration + validation periods) — see [`simulated_flows/README.md`](simulated_flows/README.md) |
-| `docs/HKPM_HM_Technical_Manual_and_User_Guide.pdf` | Combined technical manual and user guide (ESM 2 of the paper) |
+| `docs/HKPM_HM_Technical_Manual_and_User_Guide.pdf` | Combined technical manual and user guide (ESM 2 of the paper); its appendix lists the settings used for the results of the paper |
 | `Install_Libraries.bat` | One-click Windows installer for all required libraries |
 | `INSTRUCTIONS.txt` | Step-by-step Windows installation and start-up guide |
 | `requirements.txt` / `environment.yml` | Pinned pip / conda environments |
@@ -49,7 +50,7 @@ Python file.
 | | |
 |---|---|
 | Name | Hindu Kush Pamir Mountains Hydrological Model (HKPM-HM) |
-| Version | 1.0.0 (first released 2026) |
+| Version | 1.0.1 (first released 2026; the model code is unchanged since 1.0.0) |
 | Language | Python ≥ 3.10 (developed and tested with 3.10–3.13) |
 | Dependencies | numpy, pandas, matplotlib, geopandas, rasterio, shapely, scipy, openpyxl, tkinter (GUI); optional: xarray, netCDF4, pyshp |
 | Operating systems | Windows / Linux / macOS |
@@ -101,19 +102,19 @@ technical manual and user guide:
 The [`simulated_flows/`](simulated_flows/) folder provides the simulated
 daily discharge (m³ s⁻¹) of all 35 Afghan study catchments of the
 accompanying paper — one CSV per catchment, covering the calibration and
-validation periods. Each series comes from the model configuration matching
-the catchment's actual cryospheric status: 29 glacierized catchments are
-simulated with the glacier module active, 6 glacier-free catchments without
-it. Observed streamflow was provided by the Afghanistan Ministry of Energy
-and Water (MEW) and is subject to MEW's data-sharing policy, so only the
-simulated series are published here. Details and a per-catchment overview
-table: [`simulated_flows/README.md`](simulated_flows/README.md).
+validation periods. All catchments were calibrated with the same automatic
+procedure, and the glacier module adds ice melt wherever the glacier
+inventory has ice in the catchment. Observed streamflow was provided by the
+Afghanistan Ministry of Energy and Water (MEW) and is subject to MEW's
+data-sharing policy, so only the simulated series are published here. Details
+and a per-catchment overview table:
+[`simulated_flows/README.md`](simulated_flows/README.md).
 
 ## Related repository
 
-The calibrated Google Earth Engine script used to derive the multi-temporal
-glacier inventory (Landsat, 1986–2025) that forces the glacier module is
-published separately:
+The Google Earth Engine scripts used to derive the multi-temporal glacier
+inventory (Landsat, 1986–2025) that forces the glacier module are published
+separately:
 **[HKPM-Glacier-Inventory-GEE](https://github.com/mnajimnasimi/HKPM-Glacier-Inventory-GEE)**
 
 ## Citation
@@ -122,8 +123,8 @@ If you use HKPM-HM in your research, please cite the accompanying paper
 (reference will be added upon publication) and the software:
 
 > Nasimi, M. N. (2026). *HKPM-HM — Hindu Kush Pamir Mountains Hydrological
-> Model* (Version 1.0.0) [Computer software].
-> https://github.com/mnajimnasimi/HKPM-HM
+> Model* (Version 1.0.1) [Computer software].
+> https://github.com/mnajimnasimi/HKPM-HM, https://doi.org/10.5281/zenodo.21966639
 
 A machine-readable citation is provided in [`CITATION.cff`](CITATION.cff).
 
